@@ -12,7 +12,7 @@
       background: #f4f6f8;
       font-family: Arial, "Malgun Gothic", "맑은 고딕", sans-serif;
       color: #1f2937;
-      font-size: 18px;
+      font-size: 19px;
     }
 
     .wrap {
@@ -39,7 +39,7 @@
     }
 
     .title {
-      font-size: 36px;
+      font-size: 38px;
       font-weight: 800;
     }
 
@@ -53,7 +53,7 @@
       border: none;
       border-radius: 10px;
       padding: 12px 16px;
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 700;
       cursor: pointer;
       color: white;
@@ -65,7 +65,7 @@
     .btn.edit { background: #2563eb; }
     .btn.publish { background: #16a34a; }
     .btn.cancel { background: #b91c1c; }
-    .btn.export { background: #7c3aed; }
+    .btn.print { background: #ea580c; }
 
     .week-tabs {
       display: flex;
@@ -78,7 +78,7 @@
       border: none;
       border-radius: 12px;
       padding: 14px 18px;
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 800;
       cursor: pointer;
       background: rgba(255,255,255,0.2);
@@ -100,14 +100,14 @@
 
     .date-row label {
       font-weight: 800;
-      font-size: 22px;
+      font-size: 24px;
     }
 
     .date-input {
       padding: 14px 16px;
       border: 1px solid #cbd5e1;
       border-radius: 12px;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 800;
       min-width: 340px;
       color: #111827;
@@ -116,7 +116,7 @@
 
     .status {
       margin-left: auto;
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 800;
       color: #fef3c7;
     }
@@ -141,7 +141,7 @@
 
     th, td {
       border: 1px solid #d1d5db;
-      padding: 12px 10px;
+      padding: 13px 10px;
       text-align: center;
       vertical-align: middle;
     }
@@ -149,11 +149,11 @@
     th {
       background: #243b53;
       color: white;
-      font-size: 20px;
+      font-size: 21px;
     }
 
     td {
-      font-size: 18px;
+      font-size: 19px;
       background: #fff;
     }
 
@@ -171,14 +171,15 @@
     .course-cell {
       text-align: left;
       white-space: pre-line;
-      min-width: 220px;
-      line-height: 1.6;
+      min-width: 240px;
+      line-height: 1.65;
+      font-size: 18px;
     }
 
     .assign-cell {
       cursor: pointer;
       font-weight: 700;
-      min-width: 120px;
+      min-width: 125px;
       background: #f9fafb;
       position: relative;
     }
@@ -196,7 +197,7 @@
     }
 
     .section-title {
-      font-size: 25px;
+      font-size: 26px;
       font-weight: 800;
       margin-bottom: 12px;
     }
@@ -212,25 +213,25 @@
       border-radius: 12px;
       background: #f9fafb;
       padding: 10px;
-      min-height: 120px;
+      min-height: 130px;
     }
 
     .waiting-box h3 {
       margin: 0 0 10px 0;
-      font-size: 20px;
+      font-size: 21px;
       color: #b91c1c;
       text-align: center;
     }
 
     .waiting-list {
       white-space: pre-line;
-      line-height: 1.7;
-      font-size: 17px;
+      line-height: 1.75;
+      font-size: 18px;
     }
 
     .note {
-      font-size: 17px;
-      line-height: 1.8;
+      font-size: 18px;
+      line-height: 1.85;
       color: #374151;
     }
 
@@ -260,13 +261,13 @@
 
     .modal h2 {
       margin: 0 0 10px 0;
-      font-size: 28px;
+      font-size: 30px;
     }
 
     .modal-sub {
       margin-bottom: 12px;
       color: #4b5563;
-      font-size: 17px;
+      font-size: 18px;
       line-height: 1.7;
     }
 
@@ -283,8 +284,8 @@
       border: 1px solid #cbd5e1;
       background: #f8fafc;
       border-radius: 10px;
-      padding: 12px;
-      font-size: 18px;
+      padding: 13px;
+      font-size: 19px;
       font-weight: 700;
       cursor: pointer;
       text-align: left;
@@ -319,22 +320,9 @@
       padding: 12px 14px;
       border: 1px solid #cbd5e1;
       border-radius: 10px;
-      font-size: 18px;
+      font-size: 19px;
       flex: 1;
       min-width: 180px;
-    }
-
-    .json-box {
-      width: 100%;
-      min-height: 260px;
-      border: 1px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 12px;
-      font-size: 15px;
-      font-family: Consolas, monospace;
-      resize: vertical;
-      background: #0f172a;
-      color: #e5e7eb;
     }
 
     @media (max-width: 1000px) {
@@ -347,14 +335,14 @@
       }
 
       .date-input {
-        font-size: 20px;
+        font-size: 22px;
         min-width: 220px;
       }
     }
 
     @media (max-width: 640px) {
       .title {
-        font-size: 26px;
+        font-size: 28px;
       }
 
       .waiting-grid {
@@ -379,6 +367,150 @@
         font-size: 16px;
       }
     }
+
+    @page {
+      size: Letter;
+      margin: 0.22in;
+    }
+
+    @media print {
+      html, body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 13px !important;
+      }
+
+      .wrap {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .toolbar,
+      .week-tabs,
+      .note,
+      .modal-backdrop,
+      #btnEdit,
+      #btnPublish,
+      #btnCancel,
+      #btnPrint {
+        display: none !important;
+      }
+
+      .header {
+        background: #ffffff !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+        border: 1px solid #888 !important;
+        border-radius: 0 !important;
+        padding: 8px !important;
+        margin-bottom: 6px !important;
+      }
+
+      .title {
+        font-size: 22px !important;
+        color: #000 !important;
+        margin-bottom: 4px !important;
+      }
+
+      .date-row {
+        margin-top: 4px !important;
+        gap: 6px !important;
+      }
+
+      .date-row label {
+        font-size: 15px !important;
+        color: #000 !important;
+      }
+
+      .date-input {
+        border: none !important;
+        background: #fff !important;
+        padding: 0 !important;
+        min-width: 0 !important;
+        font-size: 18px !important;
+        font-weight: 800 !important;
+      }
+
+      .status {
+        display: none !important;
+      }
+
+      .card {
+        box-shadow: none !important;
+        border: 1px solid #888 !important;
+        border-radius: 0 !important;
+        padding: 5px !important;
+        margin-bottom: 6px !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .table-wrap {
+        overflow: visible !important;
+      }
+
+      table {
+        width: 100% !important;
+        min-width: 0 !important;
+        table-layout: fixed !important;
+      }
+
+      th, td {
+        padding: 5px 4px !important;
+        font-size: 12px !important;
+        line-height: 1.25 !important;
+        word-break: keep-all;
+      }
+
+      th {
+        background: #e5e7eb !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      td {
+        color: #000 !important;
+      }
+
+      .route-cell {
+        background: #e0f2fe !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .course-cell {
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+      }
+
+      .section-title {
+        font-size: 15px !important;
+        margin-bottom: 4px !important;
+      }
+
+      .waiting-grid {
+        grid-template-columns: repeat(6, 1fr) !important;
+        gap: 4px !important;
+      }
+
+      .waiting-box {
+        min-height: auto !important;
+        padding: 4px !important;
+      }
+
+      .waiting-box h3 {
+        font-size: 12px !important;
+        margin: 0 0 4px 0 !important;
+      }
+
+      .waiting-list {
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -390,7 +522,7 @@
           <button class="btn edit" id="btnEdit">수정</button>
           <button class="btn publish" id="btnPublish" disabled>게시</button>
           <button class="btn cancel" id="btnCancel" disabled>수정취소</button>
-          <button class="btn export" id="btnExport">JSON 내보내기</button>
+          <button class="btn print" id="btnPrint">프린트</button>
         </div>
       </div>
 
@@ -440,11 +572,6 @@
         7) 날짜는 자동 생성되지만, 수정 모드에서는 직접 바꿀 수도 있습니다.
       </div>
     </div>
-
-    <div class="card">
-      <div class="section-title">현재 JSON</div>
-      <textarea id="jsonOutput" class="json-box" readonly></textarea>
-    </div>
   </div>
 
   <div class="modal-backdrop" id="passwordModal">
@@ -473,7 +600,7 @@
 
   <script>
     const defaultDriversData = {
-      editPassword: "6612",
+      editPassword: "1234",
       drivers: [
         "류도형","임용우","김진혁","정의철","강인수","박광석",
         "임기영","임동수","박진우","김명철","정규상","이관영",
@@ -505,7 +632,7 @@
       sat: "Sat"
     };
 
-    const storageKey = "transport_schedule_4weeks_auto_v2";
+    const storageKey = "transport_schedule_4weeks_auto_v4";
     const driversStorageKey = "transport_drivers_data_v1";
 
     let driversData = loadDriversData();
@@ -523,12 +650,11 @@
     const pageTitle = document.getElementById("pageTitle");
     const dateRangeInput = document.getElementById("dateRange");
     const editStatus = document.getElementById("editStatus");
-    const jsonOutput = document.getElementById("jsonOutput");
 
     const btnEdit = document.getElementById("btnEdit");
     const btnPublish = document.getElementById("btnPublish");
     const btnCancel = document.getElementById("btnCancel");
-    const btnExport = document.getElementById("btnExport");
+    const btnPrint = document.getElementById("btnPrint");
 
     const passwordModal = document.getElementById("passwordModal");
     const passwordInput = document.getElementById("passwordInput");
@@ -569,7 +695,7 @@
     function getMondayOfCurrentWeek() {
       const today = new Date();
       const d = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-      const day = d.getDay(); // sun 0, mon 1
+      const day = d.getDay();
       const diff = day === 0 ? -6 : (1 - day);
       d.setDate(d.getDate() + diff);
       return d;
@@ -584,7 +710,7 @@
         start.setDate(monday.getDate() + (i * 7));
 
         const end = new Date(start);
-        end.setDate(start.getDate() + 5); // 월~토
+        end.setDate(start.getDate() + 5);
 
         weeks.push({
           weekNo: i + 1,
@@ -642,7 +768,6 @@
 
       renderTable();
       renderWaitingDrivers();
-      renderJsonOutput();
 
       editStatus.textContent = editMode ? "수정 모드" : "보기 모드";
       btnPublish.disabled = !editMode;
@@ -790,10 +915,6 @@
       selectedDayKey = null;
     }
 
-    function renderJsonOutput() {
-      jsonOutput.value = JSON.stringify(editMode ? workingData : publishedData, null, 2);
-    }
-
     function enterEditMode() {
       passwordModal.classList.add("show");
       passwordInput.value = "";
@@ -842,23 +963,14 @@
       renderAll();
     }
 
-    function exportJson() {
-      const dataStr = JSON.stringify(editMode ? workingData : publishedData, null, 2);
-      const blob = new Blob([dataStr], { type: "application/json;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "schedule-4weeks.json";
-      a.click();
-
-      URL.revokeObjectURL(url);
+    function printSchedule() {
+      window.print();
     }
 
     btnEdit.addEventListener("click", enterEditMode);
     btnPublish.addEventListener("click", publishEdit);
     btnCancel.addEventListener("click", cancelEdit);
-    btnExport.addEventListener("click", exportJson);
+    btnPrint.addEventListener("click", printSchedule);
 
     btnPasswordConfirm.addEventListener("click", confirmPassword);
     btnPasswordCancel.addEventListener("click", () => passwordModal.classList.remove("show"));

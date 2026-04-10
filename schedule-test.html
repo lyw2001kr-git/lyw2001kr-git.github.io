@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>공사중</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1f4e79, #3b82f6);
+      font-family: Arial, "Malgun Gothic", "맑은 고딕", sans-serif;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 760px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 24px;
+      padding: 40px 24px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+      backdrop-filter: blur(6px);
+    }
+
+    .icon {
+      font-size: 72px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 16px 0;
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .sub {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 22px;
+      color: #fef3c7;
+    }
+
+    .desc {
+      font-size: 22px;
+      line-height: 1.8;
+      color: #f8fafc;
+    }
+
+    .footer {
+      margin-top: 28px;
+      font-size: 18px;
+      color: #dbeafe;
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 32px 18px;
+      }
+
+      .icon {
+        font-size: 56px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .sub {
+        font-size: 22px;
+      }
+
+      .desc {
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      .footer {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">🚧</div>
+    <h1>공사중입니다</h1>
+    <div class="sub">코스별 운행 스케줄표를 수정하고 있습니다</div>
+    <div class="desc">
+      더 안정적이고 보기 쉬운 형태로 개선 작업 중입니다.<br>
+      잠시 후 다시 방문해 주세요.<br><br>
+      불편을 드려 죄송합니다.
+    </div>
+    <div class="footer">
+      임마뉴엘 시니어 센터
+    </div>
+  </div>
+</body>
+</html>

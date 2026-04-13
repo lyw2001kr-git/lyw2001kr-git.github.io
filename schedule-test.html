@@ -3,106 +3,427 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>공사중</title>
+  <title>코스별 운행 스케줄표</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      min-height: 100vh;
+      font-family: Arial, "맑은 고딕", sans-serif;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .header {
+      background: #1f4e79;
+      color: #fff;
+      border-radius: 16px;
+      padding: 18px 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      margin: 0 0 8px 0;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .header .sub {
+      font-size: 17px;
+      opacity: 0.95;
+    }
+
+    .toolbar {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #1f4e79, #3b82f6);
-      font-family: Arial, "Malgun Gothic", "맑은 고딕", sans-serif;
-      color: white;
-      text-align: center;
-      padding: 20px;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
     }
 
-    .card {
-      width: 100%;
-      max-width: 760px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 24px;
-      padding: 40px 24px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
-      backdrop-filter: blur(6px);
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 15px;
+      cursor: pointer;
+      background: #1f4e79;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.10);
     }
 
-    .icon {
-      font-size: 72px;
+    .btn.secondary {
+      background: #5f6b7a;
+    }
+
+    .status {
+      margin: 10px 0 16px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid #d7dee6;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .table-box {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      border: 1px solid #d9e1ea;
       margin-bottom: 18px;
     }
 
-    h1 {
-      margin: 0 0 16px 0;
-      font-size: 52px;
-      font-weight: 800;
-      letter-spacing: -1px;
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
-    .sub {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 22px;
-      color: #fef3c7;
+    table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
     }
 
-    .desc {
+    thead th {
+      background: #2c5f8a;
+      color: #fff;
+      font-size: 15px;
+      padding: 12px 10px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.18);
+      white-space: nowrap;
+    }
+
+    tbody td {
+      border-top: 1px solid #e4e9ef;
+      border-right: 1px solid #eef2f6;
+      padding: 12px 10px;
+      font-size: 15px;
+      vertical-align: middle;
+      text-align: center;
+      background: #fff;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #fafcff;
+    }
+
+    tbody td.route {
+      font-weight: bold;
+      white-space: nowrap;
+      background: #f1f7fc;
+    }
+
+    tbody td.course {
+      text-align: left;
+      line-height: 1.5;
+      white-space: pre-line;
+      min-width: 180px;
+    }
+
+    .desktop-only {
+      display: block;
+    }
+
+    .mobile-cards {
+      display: none;
+      gap: 14px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      border: 1px solid #d9e1ea;
+    }
+
+    .card-title {
       font-size: 22px;
-      line-height: 1.8;
-      color: #f8fafc;
+      font-weight: bold;
+      color: #1f4e79;
+      margin-bottom: 10px;
     }
 
-    .footer {
-      margin-top: 28px;
-      font-size: 18px;
-      color: #dbeafe;
+    .card-course {
+      background: #f5f8fb;
+      border-radius: 10px;
+      padding: 10px 12px;
+      white-space: pre-line;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      font-size: 15px;
     }
 
-    @media (max-width: 640px) {
-      .card {
-        padding: 32px 18px;
+    .day-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .day-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #f9fbfd;
+      border: 1px solid #e5ebf2;
+    }
+
+    .day-name {
+      font-weight: bold;
+      color: #1f4e79;
+      min-width: 54px;
+    }
+
+    .driver-name {
+      font-size: 16px;
+      text-align: right;
+      flex: 1;
+    }
+
+    .footer-note {
+      margin-top: 10px;
+      color: #5f6b7a;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .header h1 {
+        font-size: 24px;
       }
 
-      .icon {
-        font-size: 56px;
+      .header .sub {
+        font-size: 16px;
       }
 
-      h1 {
-        font-size: 38px;
+      .desktop-only {
+        display: none;
       }
 
-      .sub {
-        font-size: 22px;
+      .mobile-cards {
+        display: grid;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
       }
 
-      .desc {
-        font-size: 18px;
-        line-height: 1.7;
+      .wrap {
+        max-width: none;
+        padding: 0;
       }
 
-      .footer {
-        font-size: 15px;
+      .toolbar,
+      .status,
+      .mobile-cards,
+      .footer-note {
+        display: none !important;
+      }
+
+      .desktop-only {
+        display: block !important;
+      }
+
+      .header {
+        box-shadow: none;
+        border-radius: 0;
+        margin-bottom: 8px;
+      }
+
+      .table-box {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        border-radius: 0;
+      }
+
+      .table-scroll {
+        overflow: visible;
+      }
+
+      table {
+        min-width: auto;
+      }
+
+      thead th,
+      tbody td {
+        font-size: 12px;
+        padding: 8px 6px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="icon">🚧</div>
-    <h1>공사중입니다</h1>
-    <div class="sub">코스별 운행 스케줄표를 수정하고 있습니다</div>
-    <div class="desc">
-      더 안정적이고 보기 쉬운 형태로 개선 작업 중입니다.<br>
-      잠시 후 다시 방문해 주세요.<br><br>
-      불편을 드려 죄송합니다.
+  <div class="wrap">
+    <div class="header">
+      <h1 id="pageTitle">코스별 운행 스케줄표</h1>
+      <div class="sub" id="dateRange">불러오는 중...</div>
     </div>
-    <div class="footer">
-      임마뉴엘 시니어 센터
+
+    <div class="toolbar">
+      <button class="btn" onclick="window.print()">프린트</button>
+      <button class="btn secondary" onclick="loadSchedule()">새로고침</button>
+    </div>
+
+    <div class="status" id="statusBox">JSON 파일을 읽는 중입니다...</div>
+
+    <div class="desktop-only">
+      <div class="table-box">
+        <div class="table-scroll">
+          <table id="scheduleTable">
+            <thead>
+              <tr id="tableHeadRow"></tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-cards" id="mobileCards"></div>
+
+    <div class="footer-note">
+      휴대폰에서는 카드형으로, 큰 화면에서는 표 형식으로 표시됩니다.
     </div>
   </div>
+
+  <script>
+    const JSON_FILE = "schedule.json";
+
+    const dayNameMap = {
+      mon: "월",
+      tue: "화",
+      wed: "수",
+      thu: "목",
+      fri: "금",
+      sat: "토",
+      sun: "일"
+    };
+
+    async function loadSchedule() {
+      const statusBox = document.getElementById("statusBox");
+      const pageTitle = document.getElementById("pageTitle");
+      const dateRange = document.getElementById("dateRange");
+      const tableHeadRow = document.getElementById("tableHeadRow");
+      const tableBody = document.getElementById("tableBody");
+      const mobileCards = document.getElementById("mobileCards");
+
+      statusBox.textContent = "JSON 파일을 읽는 중입니다...";
+      tableHeadRow.innerHTML = "";
+      tableBody.innerHTML = "";
+      mobileCards.innerHTML = "";
+
+      try {
+        const response = await fetch(JSON_FILE, { cache: "no-store" });
+
+        if (!response.ok) {
+          throw new Error("JSON 파일을 찾을 수 없습니다. 파일명과 위치를 확인하세요.");
+        }
+
+        const data = await response.json();
+
+        pageTitle.textContent = data.title || "코스별 운행 스케줄표";
+        dateRange.textContent = data.dateRange || "";
+
+        renderDesktopTable(data);
+        renderMobileCards(data);
+
+        statusBox.innerHTML =
+          "불러오기 완료. " +
+          "<strong>" + (data.routes ? data.routes.length : 0) + "개 코스</strong>가 표시되었습니다.";
+      } catch (error) {
+        console.error(error);
+        statusBox.innerHTML =
+          "<strong>불러오기 실패:</strong> " + error.message +
+          "<br><br>확인할 것:" +
+          "<br>1) JSON 파일명이 <strong>schedule.json</strong> 인지" +
+          "<br>2) HTML과 JSON이 같은 폴더에 있는지" +
+          "<br>3) 웹서버에서 열었는지";
+      }
+    }
+
+    function renderDesktopTable(data) {
+      const tableHeadRow = document.getElementById("tableHeadRow");
+      const tableBody = document.getElementById("tableBody");
+      const days = data.days || [];
+
+      const headers = ["호차", "코스별", ...days.map(day => dayNameMap[day] || day)];
+      tableHeadRow.innerHTML = headers.map(h => `<th>${h}</th>`).join("");
+
+      (data.routes || []).forEach(route => {
+        const tr = document.createElement("tr");
+
+        const dayCells = days.map(day => {
+          const value = (route.assignments && route.assignments[day]) ? route.assignments[day] : "";
+          return `<td>${escapeHtml(value)}</td>`;
+        }).join("");
+
+        tr.innerHTML = `
+          <td class="route">${escapeHtml(route.routeId || "")}</td>
+          <td class="course">${escapeHtml(route.course || "")}</td>
+          ${dayCells}
+        `;
+
+        tableBody.appendChild(tr);
+      });
+    }
+
+    function renderMobileCards(data) {
+      const mobileCards = document.getElementById("mobileCards");
+      const days = data.days || [];
+
+      (data.routes || []).forEach(route => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const dayRows = days.map(day => {
+          const driver = (route.assignments && route.assignments[day]) ? route.assignments[day] : "";
+          return `
+            <div class="day-row">
+              <div class="day-name">${escapeHtml(dayNameMap[day] || day)}</div>
+              <div class="driver-name">${escapeHtml(driver)}</div>
+            </div>
+          `;
+        }).join("");
+
+        card.innerHTML = `
+          <div class="card-title">${escapeHtml(route.routeId || "")}</div>
+          <div class="card-course">${escapeHtml(route.course || "")}</div>
+          <div class="day-list">
+            ${dayRows}
+          </div>
+        `;
+
+        mobileCards.appendChild(card);
+      });
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;")
+        .replaceAll("\n", "<br>");
+    }
+
+    loadSchedule();
+  </script>
 </body>
 </html>

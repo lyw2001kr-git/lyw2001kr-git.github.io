@@ -1,0 +1,161 @@
+{
+  "type": "weekly_schedule_view",
+  "version": 1,
+  "exportedAt": "2026-04-13T22:30:55.165Z",
+  "title": "코스별 운행 스케줄표",
+  "dateRange": "04/13/26 - 04/18/26",
+  "days": [
+    "mon",
+    "tue",
+    "wed",
+    "thu",
+    "fri",
+    "sat"
+  ],
+  "routes": [
+    {
+      "routeId": "1호",
+      "course": "1) Ellicott방면\n2) Catons방면",
+      "assignments": {
+        "mon": "류도형",
+        "tue": "류도형",
+        "wed": "류도형",
+        "thu": "임용우",
+        "fri": "류도형",
+        "sat": "류도형"
+      }
+    },
+    {
+      "routeId": "2호",
+      "course": "1) Silver Spring\n2) Laurel",
+      "assignments": {
+        "mon": "김진혁",
+        "tue": "정의철",
+        "wed": "정의철",
+        "thu": "정의철",
+        "fri": "정의철",
+        "sat": "정의철"
+      }
+    },
+    {
+      "routeId": "3호",
+      "course": "1) Village Oak Apt\n2) Down Town",
+      "assignments": {
+        "mon": "강인수",
+        "tue": "강인수",
+        "wed": "강인수",
+        "thu": "강인수",
+        "fri": "강인수",
+        "sat": "강인수"
+      }
+    },
+    {
+      "routeId": "4호",
+      "course": "1) Odenton\n2) Ellicott방면 3.....",
+      "assignments": {
+        "mon": "박광석",
+        "tue": "박광석",
+        "wed": "박광석",
+        "thu": "박광석",
+        "fri": "박광석",
+        "sat": "박광석"
+      }
+    },
+    {
+      "routeId": "5,6호",
+      "course": "1) Marriotts\n2) Village Oak Apt",
+      "assignments": {
+        "mon": "임기영",
+        "tue": "임동수",
+        "wed": "임기영",
+        "thu": "박진우",
+        "fri": "임기영",
+        "sat": "임동수"
+      }
+    },
+    {
+      "routeId": "7호",
+      "course": "1) Glen Burnie방면",
+      "assignments": {
+        "mon": "김명철",
+        "tue": "김명철",
+        "wed": "김명철",
+        "thu": "김명철",
+        "fri": "임동수",
+        "sat": "김명철"
+      }
+    },
+    {
+      "routeId": "8호",
+      "course": "1) Olney 성당Apt",
+      "assignments": {
+        "mon": "임동수",
+        "tue": "정규상",
+        "wed": "정규상",
+        "thu": "정규상",
+        "fri": "정규상",
+        "sat": "정규상"
+      }
+    },
+    {
+      "routeId": "9호",
+      "course": "1) Columbia방면\n2) Ellicott방면",
+      "assignments": {
+        "mon": "이관영",
+        "tue": "김진혁",
+        "wed": "이관영",
+        "thu": "이관영",
+        "fri": "이관영",
+        "sat": "이관영"
+      }
+    },
+    {
+      "routeId": "10호",
+      "course": "1) Silver Spring\n(Garden Apt)",
+      "assignments": {
+        "mon": "최돈상",
+        "tue": "최돈상",
+        "wed": "최돈상",
+        "thu": "김진혁",
+        "fri": "최돈상",
+        "sat": "최돈상"
+      }
+    },
+    {
+      "routeId": "11호",
+      "course": "1) Loch Raven Apt\n2) Towson방면",
+      "assignments": {
+        "mon": "임용우",
+        "tue": "데니얼김",
+        "wed": "데니얼김",
+        "thu": "데니얼김",
+        "fri": "데니얼김",
+        "sat": "임용우"
+      }
+    },
+    {
+      "routeId": "12호",
+      "course": "1) Silver Spring\n(Inwood Apt)",
+      "assignments": {
+        "mon": "신용섭",
+        "tue": "신용섭",
+        "wed": "김진혁",
+        "thu": "신용섭",
+        "fri": "신용섭",
+        "sat": "신용섭"
+      }
+    },
+    {
+      "routeId": "13호",
+      "course": "1) Baltimore 성당 Apt\n2) Longwood Apt",
+      "assignments": {
+        "mon": "정영근",
+        "tue": "정영근",
+        "wed": "정영근",
+        "thu": "정영근",
+        "fri": "정영근",
+        "sat": "정영근"
+      }
+    }
+  ]
+ }
